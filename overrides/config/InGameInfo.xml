@@ -5,7 +5,7 @@
             <str>{pingicon} Ping: $e{ping}$f</str>
         </line>
 		<line>
-            <str>Pos: §7{xi} {yi} {zi}$f</str>
+            <str>Time IRL: §7{rltime}$f</str>
 		</line>
         <line>
             <str>Day §7{day}, {mctime} (</str>

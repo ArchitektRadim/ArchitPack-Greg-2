@@ -25,7 +25,7 @@ distance:1
 showCoords:true
 lockNorth:false
 zoom:0
-minimapSize:129
+minimapSize:141
 entityAmount:1
 chunkGrid:-1
 slimeChunks:false
@@ -38,7 +38,7 @@ otherTeamColor:-1
 tamedMobsColor:-1
 mapSafeMode:false
 minimapOpacity:100.0
-waypointsIngameScale:1.0
+waypointsIngameScale:1.0000000149011612
 waypointsDistanceScale:1.0
 waypointsNameScale:0.800000011920929
 waypointsClampDepth:0.0
@@ -54,7 +54,7 @@ showBiome:false
 showEntityHeight:true
 showFlowers:true
 keepWaypointNames:false
-waypointsDistance:0.0
+waypointsDistanceExp:0
 waypointsDistanceMin:0.0
 waypointTPCommand:/tp @s
 arrowScale:1.5
@@ -94,7 +94,8 @@ alwaysEntityNametags:false
 minimapTextAlign:0
 showAngles:false
 waypointsMutualEdit:true
-compass:true
+compassLocation:1
+compassScale:1
 caveMapsDepth:30
 hideWaypointCoordinates:false
 renderAllSets:false
@@ -109,7 +110,10 @@ lightOverlayColor:13
 uiScale:0
 bossHealthPushBox:1
 potionEffectPushBox:1
-interface:dummy:0:50:true:false:false:false
+minimapFrame:0
+minimapFrameColor:9
+compassColor:9
+interface:dummy:0:36:true:false:false:false
 interface:dummy:0:10000:true:false:false:false
 interface:dummy:0:0:false:false:true:false
 interface:dummy:0:36:true:false:false:false

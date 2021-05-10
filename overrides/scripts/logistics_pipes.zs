@@ -17,7 +17,7 @@ val assembler = mods.gregtech.recipe.RecipeMap.getByName("assembler");
 #----------------------------logistics_pipes-pipes-------------------------------
 
 recipes.remove(<logisticspipes:pipe_transport_basic>);
-recipes.addShaped(<logisticspipes:pipe_transport_basic> *4, [[<ore:stickSteelMagnetic>, <ore:craftingToolFile>, <ore:stickSteelMagnetic>], [<ore:paneGlassColorless>, null, <ore:paneGlassColorless>], [<ore:stickSteelMagnetic>, <ore:craftingToolHardHammer>, <ore:stickSteelMagnetic>]]);
+recipes.addShaped(<logisticspipes:pipe_transport_basic> *4, [[<ore:stickSteelMagnetic>, <gregtech:meta_tool:9>, <ore:stickSteelMagnetic>], [<ore:paneGlassColorless>, null, <ore:paneGlassColorless>], [<ore:stickSteelMagnetic>, <gregtech:meta_tool:6>, <ore:stickSteelMagnetic>]]);
 
 recipes.removeShaped(<logisticspipes:pipe_basic>, [[<logisticspipes:chip_fpga>], [<logisticspipes:pipe_transport_basic>]]);
 assembler.recipeBuilder()
@@ -296,76 +296,75 @@ recipes.remove(<logisticspipes:module_blank>);
 recipes.addShaped(<logisticspipes:module_blank>, [[null, <ore:paper>, null], [<ore:screwSteel>, <ore:plateSteel>, <ore:screwSteel>], [null, <ore:nuggetGold>, null]]);
 
 recipes.remove(<logisticspipes:disk>);
-recipes.addShaped(<logisticspipes:disk>, [[<ore:craftingToolHardHammer>, <ore:paper>, <ore:craftingToolScrewdriver>], [<ore:dyeBlack>, <ore:oc:materialDisk>, <ore:screwSteel>], [null, <ore:platePlastic>, null]]);
+recipes.addShaped(<logisticspipes:disk>, [[<gregtech:meta_tool:6>, <ore:paper>, <gregtech:meta_tool:11>], [<ore:dyeBlack>, <ore:oc:materialDisk>, <ore:screwSteel>], [null, <ore:platePlastic>, null]]);
 
 recipes.removeShaped(<logisticspipes:remote_orderer>, [[<logisticspipes:chip_advanced>, <ore:ingotGold>, <logisticspipes:chip_advanced>], [<ore:dustRedstone>, <ore:blockGlass>, <ore:gemLapis>], [<ore:dustRedstone>, <ore:dustRedstone>, <ore:gemLapis>]]);
-recipes.addShaped(<logisticspipes:remote_orderer>, [[<ore:screwSteel>, <gregtech:meta_item_1:32681>, <ore:craftingToolScrewdriver>], [<ore:plateSteel>, <ore:paneGlassColorless>, <ore:plateSteel>], [<ore:craftingToolHardHammer>, <gregtech:meta_item_1:32529>, <ore:screwSteel>]]);
+recipes.addShaped(<logisticspipes:remote_orderer>, [[<ore:screwSteel>, <gregtech:meta_item_1:32681>, <gregtech:meta_tool:11>], [<ore:plateSteel>, <ore:paneGlassColorless>, <ore:plateSteel>], [<gregtech:meta_tool:6>, <gregtech:meta_item_1:32529>, <ore:screwSteel>]]);
 
 recipes.removeShaped(<logisticspipes:sign_creator>);
 recipes.addShaped(<logisticspipes:sign_creator>, [[null, <minecraft:sign>, null],[<ore:screwIron>, <ore:circuitBasic>, <ore:screwIron>], [null, <ore:plateSteel>, null]]);
 
-
 recipes.removeShaped(<logisticspipes:pipe_controller>);
-recipes.addShaped(<logisticspipes:pipe_controller>, [[<ore:screwIron>, <ore:craftingToolScrewdriver>], [<ore:circuitBasic>, <ore:oc:materialNumPad>], [<ore:plateIron>, <ore:dyeRed>]]);
+recipes.addShaped(<logisticspipes:pipe_controller>, [[<ore:screwIron>, <gregtech:meta_tool:11>], [<ore:circuitBasic>, <ore:oc:materialNumPad>], [<ore:plateIron>, <ore:dyeRed>]]);
 
 recipes.removeShaped(<logisticspipes:pipe_manager>);
-recipes.addShaped(<logisticspipes:pipe_manager>, [[<ore:screwIron>, <ore:craftingToolScrewdriver>], [<ore:circuitBasic>, <ore:oc:materialNumPad>], [<ore:plateIron>, <ore:dyeYellow>]]);
+recipes.addShaped(<logisticspipes:pipe_manager>, [[<ore:screwIron>, <gregtech:meta_tool:11>], [<ore:circuitBasic>, <ore:oc:materialNumPad>], [<ore:plateIron>, <ore:dyeYellow>]]);
 
 recipes.removeShaped(<logisticspipes:logistics_programmer>);
-recipes.addShaped(<logisticspipes:logistics_programmer>, [[<ore:screwIron>, <ore:craftingToolScrewdriver>], [<ore:circuitBasic>, <ore:oc:materialNumPad>], [<ore:plateIron>, <ore:dyeBlue>]]);
+recipes.addShaped(<logisticspipes:logistics_programmer>, [[<ore:screwIron>, <gregtech:meta_tool:11>], [<ore:circuitBasic>, <ore:oc:materialNumPad>], [<ore:plateIron>, <ore:dyeBlue>]]);
 
 #----------------------------logistics_pipes-modules-------------------------------
 
 recipes.remove(<logisticspipes:module_item_sink>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateSteel>, <ore:dyeGreen>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateSteel>, <ore:dyeGreen>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_item_sink"}))
-		.outputs(<logisticspipes:module_item_sink>)
+		.outputs(<logisticspipes:module_item_sink> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_passive_supplier>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateSteel>, <ore:dyeRed>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateSteel>, <ore:dyeRed>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_passive_supplier"}))
-		.outputs(<logisticspipes:module_passive_supplier>)
+		.outputs(<logisticspipes:module_passive_supplier> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_extractor>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <ore:circuitBasic>, <logisticspipes:module_blank:*>, <ore:plateSteel>, <ore:dyeBlue>)
+		.inputs(<logisticspipes:chip_fpga>, <ore:circuitBasic>, <logisticspipes:module_blank:*> *3, <ore:plateSteel>, <ore:dyeBlue>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_extractor"}))
-		.outputs(<logisticspipes:module_extractor>)
+		.outputs(<logisticspipes:module_extractor> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_item_sink_polymorphic>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateSteel>, <ore:dyeOrange>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateSteel>, <ore:dyeOrange>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_item_sink_polymorphic"}))
-		.outputs(<logisticspipes:module_item_sink_polymorphic>)
+		.outputs(<logisticspipes:module_item_sink_polymorphic> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_quick_sort>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <ore:circuitGood>, <logisticspipes:module_blank:*>, <ore:plateAluminium>, <ore:dyeBlue>)
+		.inputs(<logisticspipes:chip_fpga>, <ore:circuitGood>, <logisticspipes:module_blank:*> *3, <ore:plateAluminium>, <ore:dyeBlue>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_quick_sort"}))
-		.outputs(<logisticspipes:module_quick_sort>)
+		.outputs(<logisticspipes:module_quick_sort> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_terminus>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateSteel>, <ore:dyePurple>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateSteel>, <ore:dyePurple>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_terminus"}))
-		.outputs(<logisticspipes:module_terminus>)
+		.outputs(<logisticspipes:module_terminus> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
@@ -374,34 +373,34 @@ recipes.remove(<logisticspipes:module_extractor_advanced>);
 assembler.recipeBuilder()
 		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_extractor:*>, <ore:dyeBlue>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_extractor_advanced"}))
-		.outputs(<logisticspipes:module_extractor_advanced>)
+		.outputs(<logisticspipes:module_extractor_advanced> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_provider>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <ore:circuitBasic>, <logisticspipes:module_blank:*>, <ore:plateSteel>, <ore:dyeBlue>)
+		.inputs(<logisticspipes:chip_fpga>, <ore:circuitBasic>, <logisticspipes:module_blank:*> *3, <ore:plateSteel>, <ore:dyeBlue>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_provider"}))
-		.outputs(<logisticspipes:module_provider>)
+		.outputs(<logisticspipes:module_provider> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_item_sink_mod>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateAluminium>, <ore:dyeGreen>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateAluminium>, <ore:dyeGreen>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_item_sink_mod"}))
-		.outputs(<logisticspipes:module_item_sink_mod>)
+		.outputs(<logisticspipes:module_item_sink_mod> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_item_sink_oredict>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateAluminium>, <ore:dyeGreen>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateAluminium>, <ore:dyeGreen>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_item_sink_oredict"}))
-		.outputs(<logisticspipes:module_item_sink_oredict>)
+		.outputs(<logisticspipes:module_item_sink_oredict> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
@@ -410,7 +409,7 @@ recipes.remove(<logisticspipes:module_enchantment_sink>);
 assembler.recipeBuilder()
 		.inputs(<ore:circuitBasic>, <logisticspipes:module_item_sink:*>, <ore:plateSteel>, <ore:dyeRed>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_enchantment_sink"}))
-		.outputs(<logisticspipes:module_enchantment_sink>)
+		.outputs(<logisticspipes:module_enchantment_sink> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
@@ -419,34 +418,34 @@ recipes.remove(<logisticspipes:module_enchantment_sink_mk2>);
 assembler.recipeBuilder()
 		.inputs(<ore:circuitBasic>, <logisticspipes:module_enchantment_sink:*>, <ore:plateAluminium>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_enchantment_sink_mk2"}))
-		.outputs(<logisticspipes:module_enchantment_sink_mk2>)
+		.outputs(<logisticspipes:module_enchantment_sink_mk2> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_crafter>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <ore:circuitBasic>, <logisticspipes:module_blank:*>, <ore:plateAluminium>, <ore:dyeOrange>)
+		.inputs(<logisticspipes:chip_fpga>, <ore:circuitBasic>, <logisticspipes:module_blank:*> *3, <ore:plateAluminium>, <ore:dyeOrange>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_crafter"}))
-		.outputs(<logisticspipes:module_crafter>)
+		.outputs(<logisticspipes:module_crafter> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_active_supplier>);
 assembler.recipeBuilder()
-		.inputs(<ore:circuitBasic>, <ore:circuitGood>, <logisticspipes:module_blank:*>, <ore:plateAluminium>, <ore:dyeRed>)
+		.inputs(<ore:circuitBasic>, <ore:circuitGood>, <logisticspipes:module_blank:*> *3, <ore:plateAluminium>, <ore:dyeRed>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_active_supplier"}))
-		.outputs(<logisticspipes:module_active_supplier>)
+		.outputs(<logisticspipes:module_active_supplier> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
 
 recipes.remove(<logisticspipes:module_item_sink_creativetab>);
 assembler.recipeBuilder()
-		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*>, <ore:plateAluminium>, <ore:dyeGreen>)
+		.inputs(<logisticspipes:chip_fpga>, <logisticspipes:module_blank:*> *3, <ore:plateAluminium>, <ore:dyeGreen>)
 		.notConsumable(<logisticspipes:logistics_programmer>.withTag({LogisticsRecipeTarget: "logisticspipes:module_item_sink_creativetab"}))
-		.outputs(<logisticspipes:module_item_sink_creativetab>)
+		.outputs(<logisticspipes:module_item_sink_creativetab> *3)
 		.duration(80)
 		.EUt(16)
 		.buildAndRegister();
@@ -643,7 +642,7 @@ assembler.recipeBuilder()
 #----------------------------logistics_pipes-blocks-------------------------------
 
 recipes.remove(<logisticspipes:frame>);
-recipes.addShaped(<logisticspipes:frame>, [[<ore:screwSteel>, <ore:platePlastic>, <ore:screwSteel>], [<ore:plateIron>, <ore:craftingToolHardHammer>, <ore:plateIron>], [null, <ore:plateSteel>, null]]);
+recipes.addShaped(<logisticspipes:frame>, [[<ore:screwSteel>, <ore:platePlastic>, <ore:screwSteel>], [<ore:plateIron>, <gregtech:meta_tool:6>, <ore:plateIron>], [null, <ore:plateSteel>, null]]);
 
 recipes.remove(<logisticspipes:pipe_request_table>);
 recipes.addShaped(<logisticspipes:pipe_request_table>, [[null, <ore:circuitGood>, null], [<logisticspipes:pipe_request_mk2>, <logisticspipes:frame>, <logisticspipes:pipe_crafting>], [null, <ore:chestWood>, null]]);

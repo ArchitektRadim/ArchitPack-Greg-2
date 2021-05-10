@@ -49,7 +49,6 @@ mods.jei.JEI.addDescription(<forestry:wood_pile>,"Charcoal is really convenient 
 #oredict-fix
 val crystalCertus = <ore:crystalCertusQuartz>;
 crystalCertus.add(<gregtech:meta_item_1:8202>);
-crystalCertus.remove(<appliedenergistics2:material>);
 mods.jei.JEI.removeAndHide(<appliedenergistics2:material>);
 
 val crystalCertusAny = <ore:crystalCertusAny>;
@@ -71,6 +70,8 @@ mods.jei.JEI.removeAndHide(<appliedenergistics2:material:46>);
 mods.jei.JEI.removeAndHide(<appliedenergistics2:material:2>);
 mods.jei.JEI.removeAndHide(<appliedenergistics2:material:3>);
 mods.jei.JEI.removeAndHide(<appliedenergistics2:material:45>);
+recipes.remove(<forestry:squeezer>);
+mods.jei.JEI.removeAndHide(<forestry:squeezer>);
 
 #-----------------------------inscriber-----------------------------
 
@@ -91,6 +92,22 @@ Inscriber.removeRecipe(<appliedenergistics2:material:24>);
 recipes.remove(<appliedenergistics2:quartz_glass>);
 alloy.recipeBuilder().inputs([<ore:dustNetherQuartz>*4,<minecraft:glass>*5]).outputs([<appliedenergistics2:quartz_glass>*5]).duration(250).EUt(16).buildAndRegister();
 recipes.remove(<appliedenergistics2:quartz_vibrant_glass>);
+
+#-----------------------------compressor------------------------------
+
+compressor.recipeBuilder()
+        .inputs(<ore:gemRuby> *9)
+		.outputs(<gregtech:compressed_7:8>)
+		.duration(400)
+		.EUt(2)
+		.buildAndRegister();
+
+compressor.recipeBuilder()
+        .inputs(<ore:gemSapphire> *9)
+		.outputs(<gregtech:compressed_7:11>)
+		.duration(400)
+		.EUt(2)
+		.buildAndRegister();
 
 #-----------------------------macerator------------------------------
 
@@ -164,6 +181,18 @@ formingPress.recipeBuilder()
 		.duration(150)
 		.EUt(480)
 		.buildAndRegister();
+
+#-----------------------------EBF--------------------------
+
+furnace.remove(<tconstruct:ingots:1>);
+blast_furnace.recipeBuilder()
+    .inputs(<ore:ingotBlackSteel> * 1, <ore:dustSignalum> * 2)
+    .fluidInputs([<liquid:oxygen> * 500])
+    .outputs(<ore:ingotArdite>.firstItem * 1)
+    .property("temperature", 1600)
+    .duration(2400)
+    .EUt(120)
+    .buildAndRegister();
 
 #-----------------------------assembler--------------------------
 
@@ -249,6 +278,20 @@ assembler.recipeBuilder()
 		.EUt(16)
 		.buildAndRegister();
 
+assembler.recipeBuilder()
+		.inputs(<railcraft:worldspike:1>, <ore:circuitGood>)
+		.outputs(<railcraft:worldspike:3>)
+		.duration(100)
+		.EUt(120)
+		.buildAndRegister();
+
+assembler.recipeBuilder()
+		.inputs(<ore:blockObsidian> *3, <ore:plateDenseSteel>, <ore:plateGold>, <minecraft:ender_pearl>)
+		.outputs(<railcraft:worldspike_point>)
+		.duration(100)
+		.EUt(120)
+		.buildAndRegister();
+
 #----------------------------opencomputers-------------------------------
 
 assembler.recipeBuilder()
@@ -298,6 +341,7 @@ mods.forestry.Carpenter.removeRecipe(<forestry:chipsets:2>);
 mods.forestry.Carpenter.removeRecipe(<forestry:chipsets:3>);
 
 mods.forestry.Carpenter.removeRecipe(<forestry:portable_alyzer>);
+mods.forestry.Carpenter.removeRecipe(<forestry:soldering_iron>);
 
 mods.forestry.Carpenter.removeRecipe(<forestry:kit_pickaxe>);
 mods.forestry.Carpenter.removeRecipe(<forestry:kit_shovel>);
@@ -305,9 +349,9 @@ mods.forestry.Carpenter.removeRecipe(<forestry:kit_shovel>);
 #----------------------------chisel-------------------------------
 
 recipes.remove(<chisel:chisel_iron>);
-recipes.addShaped(<chisel:chisel_iron>, [[<ore:stickWood>, <ore:craftingToolFile>], [<ore:craftingToolHardHammer>, <ore:plateIron>]]);
+recipes.addShaped(<chisel:chisel_iron>, [[<gregtech:meta_tool:6>, <ore:plateIron>], [<ore:stickWood>, <gregtech:meta_tool:9>]]);
 recipes.remove(<chisel:chisel_diamond>);
-recipes.addShaped(<chisel:chisel_diamond>, [[<ore:stickWood>, <ore:craftingToolFile>], [<ore:craftingToolHardHammer>, <ore:plateDiamond>]]);
+recipes.addShaped(<chisel:chisel_diamond>, [[<gregtech:meta_tool:6>, <ore:plateDiamond>], [<ore:stickWood>, <gregtech:meta_tool:9>]]);
 recipes.remove(<chisel:chisel_hitech>);
 recipes.addShapeless(<chisel:chisel_hitech>, [<chisel:chisel_diamond>, <ore:circuitBasic>]);
 
@@ -344,7 +388,7 @@ formingPress.recipeBuilder()
 		.buildAndRegister();
 
 recipes.removeShaped(<appliedenergistics2:part:180> * 3, [[null, <ore:dustGlowstone>, <appliedenergistics2:quartz_glass>], [<ore:ingotIron>, <ore:dustRedstone>, <appliedenergistics2:quartz_glass>], [null, <ore:dustGlowstone>, <appliedenergistics2:quartz_glass>]]);
-recipes.addShaped(<appliedenergistics2:part:180> * 3, [[<ore:craftingToolScrewdriver>, <appliedenergistics2:quartz_glass>, <ore:craftingToolWrench>], [<ore:screwStainlessSteel>, <gtadditions:ga_meta_item:32579>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <ore:plateStainlessSteel>, <ore:plateStainlessSteel>]]);
+recipes.addShaped(<appliedenergistics2:part:180> * 3, [[<gregtech:meta_tool:11>, <appliedenergistics2:quartz_glass>, <gregtech:meta_tool:8>], [<ore:screwStainlessSteel>, <gtadditions:ga_meta_item:32579>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <ore:plateStainlessSteel>, <ore:plateStainlessSteel>]]);
 
 recipes.remove(<appliedenergistics2:material:42>);
 assembler.recipeBuilder()
@@ -355,7 +399,7 @@ assembler.recipeBuilder()
 		.buildAndRegister();
 
 recipes.remove(<appliedenergistics2:material:39>);
-recipes.addShaped(<appliedenergistics2:material:39>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, null, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:material:39>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, null, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 
 electrolyzer.recipeBuilder()
 		.inputs(<ore:crystalCertusQuartz>)
@@ -380,49 +424,49 @@ assembler.recipeBuilder()
 		.buildAndRegister();
 
 recipes.remove(<appliedenergistics2:material:52>);
-recipes.addShaped(<appliedenergistics2:material:52>, [[<ore:screwStainlessSteel>, <appliedenergistics2:quartz_glass>, <ore:craftingToolScrewdriver>], [<ore:platePlastic>, <minecraft:paper>, <ore:platePlastic>], [null, <ore:plateCertusQuartz>, null]]);
+recipes.addShaped(<appliedenergistics2:material:52>, [[<ore:screwStainlessSteel>, <appliedenergistics2:quartz_glass>, <gregtech:meta_tool:11>], [<ore:platePlastic>, <minecraft:paper>, <ore:platePlastic>], [null, <ore:plateCertusQuartz>, null]]);
 
 #----------------------------applied-energetics-2-cells-------------------------------
 
 recipes.remove(<appliedenergistics2:view_cell>);
 recipes.addShapeless(<appliedenergistics2:view_cell>, [<appliedenergistics2:material:39>, <ore:crystalCertusAny>]);
-recipes.addShaped(<appliedenergistics2:view_cell>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <ore:crystalCertusAny>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:view_cell>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <ore:crystalCertusAny>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 
 recipes.remove(<appliedenergistics2:storage_cell_1k>);
 recipes.addShapeless(<appliedenergistics2:storage_cell_1k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:35>]);
-recipes.addShaped(<appliedenergistics2:storage_cell_1k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:35>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:storage_cell_1k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:35>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:storage_cell_4k>);
 recipes.addShapeless(<appliedenergistics2:storage_cell_4k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:36>]);
-recipes.addShaped(<appliedenergistics2:storage_cell_4k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:36>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:storage_cell_4k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:36>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:storage_cell_16k>);
 recipes.addShapeless(<appliedenergistics2:storage_cell_16k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:37>]);
-recipes.addShaped(<appliedenergistics2:storage_cell_16k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:37>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:storage_cell_16k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:37>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:storage_cell_64k>);
 recipes.addShapeless(<appliedenergistics2:storage_cell_64k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:38>]);
-recipes.addShaped(<appliedenergistics2:storage_cell_64k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:38>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:storage_cell_64k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:38>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 
 recipes.remove(<appliedenergistics2:fluid_storage_cell_1k>);
 recipes.addShapeless(<appliedenergistics2:fluid_storage_cell_1k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:54>]);
-recipes.addShaped(<appliedenergistics2:fluid_storage_cell_1k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:54>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:fluid_storage_cell_1k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:54>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:fluid_storage_cell_4k>);
 recipes.addShapeless(<appliedenergistics2:fluid_storage_cell_4k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:55>]);
-recipes.addShaped(<appliedenergistics2:fluid_storage_cell_4k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:55>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:fluid_storage_cell_4k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:55>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:fluid_storage_cell_16k>);
 recipes.addShapeless(<appliedenergistics2:fluid_storage_cell_16k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:56>]);
-recipes.addShaped(<appliedenergistics2:fluid_storage_cell_16k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:56>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:fluid_storage_cell_16k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:56>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:fluid_storage_cell_64k>);
 recipes.addShapeless(<appliedenergistics2:fluid_storage_cell_64k>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:57>]);
-recipes.addShaped(<appliedenergistics2:fluid_storage_cell_64k>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:57>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:fluid_storage_cell_64k>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:57>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 
 recipes.remove(<appliedenergistics2:spatial_storage_cell_2_cubed>);
 recipes.addShapeless(<appliedenergistics2:spatial_storage_cell_2_cubed>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:32>]);
-recipes.addShaped(<appliedenergistics2:spatial_storage_cell_2_cubed>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:32>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:spatial_storage_cell_2_cubed>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:32>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:spatial_storage_cell_16_cubed>);
 recipes.addShapeless(<appliedenergistics2:spatial_storage_cell_16_cubed>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:33>]);
-recipes.addShaped(<appliedenergistics2:spatial_storage_cell_16_cubed>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:33>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:spatial_storage_cell_16_cubed>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:33>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 recipes.remove(<appliedenergistics2:spatial_storage_cell_128_cubed>);
 recipes.addShapeless(<appliedenergistics2:spatial_storage_cell_128_cubed>, [<appliedenergistics2:material:39>, <appliedenergistics2:material:34>]);
-recipes.addShaped(<appliedenergistics2:spatial_storage_cell_128_cubed>, [[<ore:craftingToolWrench>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:34>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <ore:craftingToolScrewdriver>]]);
+recipes.addShaped(<appliedenergistics2:spatial_storage_cell_128_cubed>, [[<gregtech:meta_tool:8>, <appliedenergistics2:quartz_glass>, <ore:screwStainlessSteel>], [<ore:plateStainlessSteel>, <appliedenergistics2:material:34>, <ore:plateStainlessSteel>], [<ore:screwStainlessSteel>, <ore:plateCertusQuartz>, <gregtech:meta_tool:11>]]);
 
 #----------------------------applied-energetics-2-storage-components-------------------------------
 
